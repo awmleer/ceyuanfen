@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>测缘分</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        function test(){
+            var str1,str2;
+            str1=document.getElementById("textbox1").value;
+            str2=document.getElementById("textbox2").value;
+            $.get("http://121.42.209.162/cgi-bin/cyf.py",{name1:str1,name2:str2},
+                    function(data){
+                        document.getElementById("result1").innerHTML="经鉴定，"+str1+"与"+str2+"的缘分值为：";
+                        document.getElementById("result2").innerHTML=data+"%";
+                    }
+            );
+        }
+    </script>
+    <style type="text/css">
+        #ok{
+            border: none;
+            background-color:#f1b458;
+            color: #ffffff;
+            line-height: 44px;
+            padding: 0 30px;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 0px;
+            display: inline-block;
+            margin-top: 20px;
+            outline: none;
+            font-family:"microsoft yahei";
+        }
+        .input-group{
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -moz-border-radius: 0px;
+            -webkit-border-radius: 0px;
+            border-radius: 0px;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+            background-color: #ff;
+            border: none;
+            min-height: 40px;
+            padding:10px 0px;
+            width: 100%;
+            color:#555;
+        }
+        .input-text{
+            height: 40px;
+            width: 50%;
+            font-family: "microsoft yahei";
+            font-size: 20px;
+        }
+        h1{
+            font-family: "microsoft yahei";
+            font-size: 50px;
+        }
+        h2{
+            font-family: "microsoft yahei";
+            font-size: 15px;
+            color: #d3d3d3;
+            font-weight: normal;
+        }
+        #result1{
+            font-family: "microsoft yahei";
+            font-size: 20px;
+            font-weight: normal;
+            color: black;
+        }
+        #result2{
+            font-family: "microsoft yahei";
+            font-size: 50px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div id="maindiv" style="width: 50%;margin-left: 25%;margin-right: 25%;">
+    <h1>测缘分</h1>
+    <h2>designed by HGB<br>programmed by QZH<br>本网页仅个人娱乐使用，开发者对测试结果不付任何责任</h2>
+    <div class="input-group">
+        <input class="input-text" id="textbox1" placeholder="请输入名字1" type="text" required="">
+    </div>
+    <div class="input-group">
+        <input class="input-text" id="textbox2" placeholder="请输入名字2" type="text" required="">
+    </div>
+    <button id="ok" onclick="test()">开始测试</button>
+    <br>
+    <br>
+    <br>
+    <p id="result1"></p>
+    <p id="result2"></p>
+</div>
+</body>
+</html>
